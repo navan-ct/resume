@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Navaneeth CT - Resume</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-color: #0f172a; /* Slate 900 */
+      --secondary-color: #475569; /* Slate 600 */
+      --accent-color: #2563eb; /* Royal blue, used very sparingly */
+      --border-color: #e2e8f0; /* Slate 200 */
+      --bg-color: #ffffff;
+      --text-color: #1e293b; /* Slate 800 */
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: var(--text-color);
+      background-color: #f8fafc;
+      line-height: 1.4;
+      font-size: 12px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Resume container for screen view (simulating A4) */
+    .resume-page {
+      background: var(--bg-color);
+      width: 210mm;
+      min-height: 297mm;
+      margin: 20px auto;
+      padding: 15mm 15mm;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+      border-radius: 4px;
+      position: relative;
+    }
+
+    header {
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 8px;
+      margin-bottom: 16px;
+    }
+
+    .header-main {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: var(--primary-color);
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--accent-color);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-top: 2px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 6px 12px;
+      font-size: 11px;
+      color: var(--secondary-color);
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .contact-item a {
+      color: inherit;
+      text-decoration: none;
+      transition: color 0.15s ease;
+    }
+
+    .contact-item a:hover {
+      color: var(--accent-color);
+    }
+
+    .contact-item svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--secondary-color);
+      stroke-width: 2;
+      fill: none;
+      flex-shrink: 0;
+    }
+
+    .summary-section {
+      margin-bottom: 16px;
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .summary-text {
+      font-size: 12px;
+      color: var(--text-color);
+    }
+
+    section {
+      margin-bottom: 16px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 12px;
+    }
+
+    h2 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-color);
+      border-left: 2px solid var(--accent-color);
+      padding-left: 6px;
+      margin-bottom: 8px;
+      line-height: 1;
+    }
+
+    /* Skills layout */
+    .skills-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .skills-category {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 12px;
+      align-items: baseline;
+    }
+
+    .skills-label {
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 12px;
+    }
+
+    .skills-list {
+      color: var(--text-color);
+      font-size: 12px;
+    }
+
+    /* Experience & Education list */
+    .timeline-item {
+      margin-bottom: 12px;
+    }
+
+    .timeline-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .timeline-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 4px;
+    }
+
+    .role-company {
+      font-weight: 600;
+      font-size: 12px;
+      color: var(--primary-color);
+    }
+
+    .role-company span.company {
+      font-weight: 400;
+      color: var(--secondary-color);
+    }
+
+    .role-company span.separator {
+      color: var(--border-color);
+      margin: 0 4px;
+    }
+
+    .duration-location {
+      font-size: 11px;
+      color: var(--secondary-color);
+      text-align: right;
+    }
+
+    .location {
+      font-style: italic;
+      font-size: 11px;
+      color: #64748b;
+    }
+
+    .bullets {
+      margin-left: 14px;
+      margin-top: 4px;
+      color: var(--text-color);
+      font-size: 12px;
+    }
+
+    .bullets li {
+      margin-bottom: 3px;
+      padding-left: 2px;
+    }
+
+    .bullets li:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Education styling */
+    .education-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .education-degree {
+      font-weight: 600;
+      color: var(--primary-color);
+      font-size: 12px;
+    }
+
+    .education-institution {
+      font-weight: 400;
+      color: var(--secondary-color);
+      font-size: 12px;
+    }
+
+    /* Print styles */
+    @media print {
+      body {
+        background: #fff;
+        color: #000;
+        font-size: 11px; 
+      }
+
+      .resume-page {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      /* Adjust margins to standard A4 printing */
+      @page {
+        size: A4;
+        margin: 10mm;
+      }
+
+      .contact-item a:hover {
+        color: inherit;
+      }
+
+      /* Ensure everything fits on a single page */
+      .timeline-item {
+        page-break-inside: avoid;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="resume-page">
+    <header>
+      <div class="header-main">
+        <div>
+          <h1>Navaneeth CT</h1>
+          <div class="title">Senior Software Engineer</div>
+        </div>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M12 2a8 8 0 0 0-8 8c0 5.25 8 12 8 12s8-6.75 8-12a8 8 0 0 0-8-8z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Kozhikode, Kerala, India</span>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <a href="tel:+919605803127">+91 96058 03127</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <a href="mailto:navaneethct1199@gmail.com">navaneethct1199@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          <a href="https://navaneethct.com" target="_blank" rel="noopener noreferrer">navaneethct.com</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+          <a href="https://linkedin.com/in/navaneeth-ct" target="_blank" rel="noopener noreferrer">linkedin.com/in/navaneeth-ct</a>
+        </div>
+        <div class="contact-item">
+          <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+          <a href="https://github.com/navan-ct" target="_blank" rel="noopener noreferrer">github.com/navan-ct</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="summary-section">
+        <h2>Summary</h2>
+        <p class="summary-text">
+          Software Engineer with 5+ years of experience building web applications and APIs. Skilled in Node.js, React, and SQL/NoSQL databases. Have worked across the stack, from backend services to frontend UIs, in fast-paced product and consulting environments.
+        </p>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skills-category">
+            <div class="skills-label">Languages</div>
+            <div class="skills-list">Node.js, TypeScript, JavaScript, HTML, CSS</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Frameworks & Libraries</div>
+            <div class="skills-list">React, Next.js, NestJS, Express.js, Tailwind CSS</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Databases & Caching</div>
+            <div class="skills-list">PostgreSQL, MySQL, MongoDB, Redis</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Testing</div>
+            <div class="skills-list">Jest, Vitest, React Testing Library, Playwright</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">DevOps & Cloud</div>
+            <div class="skills-list">Docker, Kubernetes, AWS, GitHub Actions</div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Experience</h2>
+        
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="role-company">
+              <span>Lead Solution Engineer</span>
+              <span class="separator">|</span>
+              <span class="company">IBS Software</span>
+            </div>
+            <div class="duration-location">
+              <div>Jul 2025 – Mar 2026</div>
+              <div class="location">Kochi, Kerala, India</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Worked on the frontend of a large-scale travel booking platform handling flights, hotels, and ancillary services, used by customers across multiple regions.</li>
+            <li>Worked closely with stakeholders to understand customer requirements, and created detailed technical documentation to guide implementation across the frontend team.</li>
+            <li>Contributed to the company's in-house component library, helping improve consistency and reusability across the platform's UI.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="role-company">
+              <span>Software Engineer</span>
+              <span class="separator">|</span>
+              <span class="company">Micro.company</span>
+            </div>
+            <div class="duration-location">
+              <div>Sep 2024 – Jun 2025</div>
+              <div class="location">Remote</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Worked on building an AI-powered browser automation tool that lets users perform web actions through natural language instructions.</li>
+            <li>Designed, built, and shipped a Shopify app that allows merchants to set up a store locator and add it to their storefront, taking it from idea to production.</li>
+            <li>Was involved in product design discussions and helped shape the direction of the product, including feature prioritization and UX decisions.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="role-company">
+              <span>Consultant II</span>
+              <span class="separator">|</span>
+              <span class="company">Neudesic</span>
+            </div>
+            <div class="duration-location">
+              <div>Jun 2022 – Sep 2024</div>
+              <div class="location">Kochi, Kerala, India</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Designed and built a comprehensive API template that was adopted as the standard base for all backend services at one of India's major airlines.</li>
+            <li>Developed and maintained a wide range of APIs for the airline's ticket booking platform, which are actively used by millions of passengers.</li>
+            <li>Raised the overall code quality of the team by introducing unit and end-to-end testing practices and standards, eventually reaching near 100% code coverage.</li>
+          </ul>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="role-company">
+              <span>Software Engineer</span>
+              <span class="separator">|</span>
+              <span class="company">Bititude</span>
+            </div>
+            <div class="duration-location">
+              <div>Jul 2020 – Jun 2022</div>
+              <div class="location">Remote</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Built a real-time video conferencing system with integrated chat, used for conducting live classes inside a learning management system.</li>
+            <li>Designed and built reusable, extensible Calendar and Table components that were later adopted across several other projects in the company.</li>
+            <li>Led a small team of developers through the full lifecycle of a project, from planning to delivery, making sure timelines and goals were met.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Education</h2>
+        <div class="education-item">
+          <div>
+            <span class="education-degree">Bachelor of Computer Applications</span>
+            <span class="separator" style="color: var(--border-color); margin: 0 4px;">|</span>
+            <span class="education-institution">University of Calicut</span>
+          </div>
+          <div class="duration-location">
+            <div>2017 – 2020</div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+</body>
+</html>
