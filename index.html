@@ -46,7 +46,7 @@
 
     header {
       border-bottom: 2px solid var(--primary-color);
-      padding-bottom: 8px;
+      padding-bottom: 10px;
       margin-bottom: 16px;
     }
 
@@ -54,11 +54,11 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: 24px;
+      font-size: 26px;
       font-weight: 700;
       color: var(--primary-color);
       letter-spacing: -0.03em;
@@ -71,7 +71,7 @@
       color: var(--accent-color);
       text-transform: uppercase;
       letter-spacing: 0.05em;
-      margin-top: 2px;
+      margin-top: 3px;
     }
 
     .contact-grid {
@@ -125,13 +125,24 @@
     }
 
     h2 {
-      font-size: 14px;
+      font-size: 11px;
       font-weight: 700;
       color: var(--primary-color);
-      border-left: 2px solid var(--accent-color);
-      padding-left: 6px;
-      margin-bottom: 8px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: 10px;
       line-height: 1;
+    }
+
+    h2::after {
+      content: "";
+      display: inline-block;
+      width: 24px;
+      height: 2px;
+      background: var(--accent-color);
+      vertical-align: middle;
+      margin-left: 8px;
+      margin-bottom: 1px;
     }
 
     /* Skills layout */
@@ -177,13 +188,13 @@
 
     .role-company {
       font-weight: 600;
-      font-size: 12px;
+      font-size: 12.5px;
       color: var(--primary-color);
     }
 
     .role-company span.company {
-      font-weight: 400;
-      color: var(--secondary-color);
+      font-weight: 500;
+      color: var(--accent-color);
     }
 
     .role-company span.separator {
@@ -244,12 +255,13 @@
       body {
         background: #fff;
         color: #000;
-        font-size: 12px; 
+        font-size: 12px;
       }
 
       .resume-page {
         width: 100%;
-        height: 100%;
+        height: auto;
+        min-height: 0;
         margin: 0;
         padding: 0;
         box-shadow: none;
@@ -315,39 +327,13 @@
       <section class="summary-section">
         <h2>Summary</h2>
         <p class="summary-text">
-          Software Engineer with 5+ years of experience building web applications and APIs. Skilled in Node.js, React, and SQL/NoSQL databases. Have worked across the stack, from backend services to frontend UIs, in fast-paced product and consulting firms.
+          Software engineer with 5+ years of experience shipping web platforms and APIs across travel, e-commerce, and ed-tech. Built booking APIs processing 150,000+ bookings a day for one of India's largest airlines, delivered storefronts for a leading global online travel agency, and took a Shopify app from idea to launch. Strong in TypeScript, Node.js, and React.
         </p>
       </section>
 
       <section>
-        <h2>Skills</h2>
-        <div class="skills-grid">
-          <div class="skills-category">
-            <div class="skills-label">Languages</div>
-            <div class="skills-list">Node.js, TypeScript, JavaScript, HTML, CSS</div>
-          </div>
-          <div class="skills-category">
-            <div class="skills-label">Frameworks & Libraries</div>
-            <div class="skills-list">React, Next.js, NestJS, Express.js, Tailwind CSS</div>
-          </div>
-          <div class="skills-category">
-            <div class="skills-label">Databases & Caching</div>
-            <div class="skills-list">PostgreSQL, MySQL, MongoDB, Redis</div>
-          </div>
-          <div class="skills-category">
-            <div class="skills-label">Testing</div>
-            <div class="skills-list">Jest, Vitest, React Testing Library, Playwright</div>
-          </div>
-          <div class="skills-category">
-            <div class="skills-label">DevOps & Cloud</div>
-            <div class="skills-list">Docker, Kubernetes, AWS, GitHub Actions</div>
-          </div>
-        </div>
-      </section>
-
-      <section>
         <h2>Experience</h2>
-        
+
         <div class="timeline-item">
           <div class="timeline-header">
             <div class="role-company">
@@ -361,9 +347,9 @@
             </div>
           </div>
           <ul class="bullets">
-            <li>Worked on the frontend of a large-scale travel booking platform handling flights, hotels, and ancillary services, used by customers across multiple regions.</li>
-            <li>Worked closely with stakeholders to understand customer requirements, and created detailed technical documentation to guide implementation across the frontend team.</li>
-            <li>Contributed to the company's in-house component library, helping improve consistency and reusability across the platform's UI.</li>
+            <li>Delivered frontend features for a large-scale travel booking platform covering flights, hotels, and ancillary services, powering regional storefronts of a leading global online travel agency serving 100,000+ monthly visits.</li>
+            <li>Built and extended components in the company's in-house UI library used across the organization, improving consistency and reuse between product teams.</li>
+            <li>Translated stakeholder requirements into detailed technical documentation that guided implementation across the frontend team.</li>
           </ul>
         </div>
 
@@ -380,9 +366,9 @@
             </div>
           </div>
           <ul class="bullets">
-            <li>Worked on building an AI-powered browser automation tool that lets users perform web actions through natural language instructions.</li>
-            <li>Designed, built, and shipped a Shopify app that allows merchants to set up a store locator and add it to their storefront, taking it from idea to production.</li>
-            <li>Was involved in product design discussions and helped shape the direction of the product, including feature prioritization and UX decisions.</li>
+            <li>Sole engineer on an AI-powered browser automation tool that performs web actions from natural-language instructions, owning architecture, implementation, and deployment end to end.</li>
+            <li>Designed, built, and launched a Shopify app that lets merchants add a store locator to their storefront, taking it from idea to a product published on the Shopify App Store.</li>
+            <li>Helped shape product direction through design discussions, feature prioritization, and UX decisions.</li>
           </ul>
         </div>
 
@@ -399,9 +385,9 @@
             </div>
           </div>
           <ul class="bullets">
-            <li>Designed and built a comprehensive API template that was adopted as the standard base for all backend services at one of India's major airlines.</li>
-            <li>Developed and maintained a wide range of APIs for the airline's ticket booking platform, which are actively used by millions of passengers.</li>
-            <li>Raised the overall code quality of the team by introducing unit and end-to-end testing practices and standards, eventually reaching near 100% code coverage.</li>
+            <li>Developed and maintained core APIs for the ticket booking platform of one of India's largest airlines, processing 150,000+ bookings per day.</li>
+            <li>Designed and built an API template adopted as the standard base for the airline's backend services.</li>
+            <li>Introduced unit and end-to-end testing practices and standards, raising the team's overall code quality and driving coverage to near 100% on the services I worked on.</li>
           </ul>
         </div>
 
@@ -418,10 +404,40 @@
             </div>
           </div>
           <ul class="bullets">
-            <li>Built a real-time video conferencing system with integrated chat, used for conducting live classes inside a learning management system.</li>
-            <li>Designed and built reusable, extensible Calendar and Table components that were later adopted across several other projects in the company.</li>
-            <li>Led a small team of developers through the full lifecycle of a project, from planning to delivery, making sure timelines and goals were met.</li>
+            <li>Built a real-time video conferencing system with integrated chat for live classes in a learning management system, implemented first with WebRTC and later migrated to Agora.</li>
+            <li>Led a small team of developers and a tester through the full lifecycle of the LMS project, from planning to delivery.</li>
+            <li>Designed reusable, extensible Calendar and Table components later adopted across several other projects in the company.</li>
           </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2>Skills</h2>
+        <div class="skills-grid">
+          <div class="skills-category">
+            <div class="skills-label">Languages</div>
+            <div class="skills-list">TypeScript, JavaScript, HTML, CSS</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Backend</div>
+            <div class="skills-list">Node.js, NestJS, Express.js</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Frontend</div>
+            <div class="skills-list">React, Next.js, Tailwind CSS</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Databases & Caching</div>
+            <div class="skills-list">PostgreSQL, MySQL, MongoDB, Redis</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">Testing</div>
+            <div class="skills-list">Jest, Vitest, React Testing Library, Playwright</div>
+          </div>
+          <div class="skills-category">
+            <div class="skills-label">DevOps & Cloud</div>
+            <div class="skills-list">Docker, AWS, GitHub Actions CI/CD</div>
+          </div>
         </div>
       </section>
 
