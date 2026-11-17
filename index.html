@@ -197,6 +197,11 @@
       color: var(--accent-color);
     }
 
+    .role-company a {
+      color: inherit;
+      text-decoration: none;
+    }
+
     .role-company span.separator {
       color: var(--border-color);
       margin: 0 4px;
@@ -282,6 +287,15 @@
       .timeline-item {
         page-break-inside: avoid;
       }
+
+      /* Keep a section heading with its content when the resume spans pages */
+      h2 {
+        break-after: avoid;
+      }
+
+      .skills-grid {
+        break-inside: avoid;
+      }
     }
   </style>
 </head>
@@ -329,6 +343,29 @@
         <p class="summary-text">
           Software engineer with 6 years of experience shipping web platforms and APIs across travel, e-commerce, and ed-tech. Built booking APIs processing 150,000+ bookings a day for one of India's largest airlines, delivered storefronts for a leading global online travel agency, and took a Shopify app from idea to launch. Strong in TypeScript, Node.js, and React.
         </p>
+      </section>
+
+      <section>
+        <h2>Projects</h2>
+
+        <div class="timeline-item">
+          <div class="timeline-header">
+            <div class="role-company">
+              <span>Emploist</span>
+              <span class="separator">|</span>
+              <span class="company"><a href="https://www.emploist.com" target="_blank" rel="noopener noreferrer">emploist.com</a></span>
+            </div>
+            <div class="duration-location">
+              <div>Oct 2026 – Present</div>
+              <div class="location">Full-Stack Engineer</div>
+            </div>
+          </div>
+          <ul class="bullets">
+            <li>Built and launched an applicant tracking SaaS as its sole engineer, giving companies a branded careers page, a hiring pipeline, and applicants ranked by AI.</li>
+            <li>Developed the AI ranking on TypeSafe Jev, scoring each application against its job description on skills, experience, seniority fit, and qualifications through a fault-tolerant PostgreSQL job queue.</li>
+            <li>Designed and built an MCP server with 30 tools that lets teams manage jobs and applicants from AI assistants such as Claude and ChatGPT, secured with OAuth and limited to each user's own permissions.</li>
+          </ul>
+        </div>
       </section>
 
       <section>
@@ -440,7 +477,7 @@
           </div>
           <div class="skills-category">
             <div class="skills-label">AI Tooling</div>
-            <div class="skills-list">Claude Code, MCP Servers, Agents</div>
+            <div class="skills-list">Claude Code, AI Agents, MCP, Test-Driven Development</div>
           </div>
         </div>
       </section>
